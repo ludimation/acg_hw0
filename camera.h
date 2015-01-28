@@ -58,7 +58,8 @@ public:
 class OrthographicCamera : public Camera {
 public:
   // CONSTRUCTOR & DESTRUCTOR
-  OrthographicCamera(const glm::vec3 &c = glm::vec3(0,0,1), 
+  OrthographicCamera(
+         const glm::vec3 &c = glm::vec3(0,0,1), 
 		     const glm::vec3 &poi = glm::vec3(0,0,0), 
 		     const glm::vec3 &u = glm::vec3(0,1,0),
 		     double s=100);  
@@ -75,7 +76,8 @@ private:
 class PerspectiveCamera : public Camera {
 public:
   // CONSTRUCTOR & DESTRUCTOR
-  PerspectiveCamera(const glm::vec3 &c = glm::vec3(0,0,1), 
+  PerspectiveCamera(
+        const glm::vec3 &c = glm::vec3(0,0,1), 
 		    const glm::vec3 &poi = glm::vec3(0,0,0), 
 		    const glm::vec3 &u = glm::vec3(0,1,0),
 		    double a = 45);
