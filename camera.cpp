@@ -20,14 +20,12 @@ Camera::Camera(const glm::vec3 &c, const glm::vec3 &poi, const glm::vec3 &u) {
   up = glm::normalize(u);
 }
 
-OrthographicCamera::OrthographicCamera
-(const glm::vec3 &c, const glm::vec3 &poi, const glm::vec3 &u, double s) 
+OrthographicCamera::OrthographicCamera(const glm::vec3 &c, const glm::vec3 &poi, const glm::vec3 &u, double s) 
   : Camera(c,poi,u) {
   size = s;
 }
 
-PerspectiveCamera::PerspectiveCamera
-(const glm::vec3 &c, const glm::vec3 &poi, const glm::vec3 &u, double a) 
+PerspectiveCamera::PerspectiveCamera(const glm::vec3 &c, const glm::vec3 &poi, const glm::vec3 &u, double a) 
   : Camera(c,poi,u) {
   angle = a;
 }
