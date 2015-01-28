@@ -128,8 +128,23 @@ void IFS::setupPoints() {
 
 
     // ASSIGNMENT: manipulate point
+    // TOD0: test
+    for (ifs_iters = 0; ifs_iters < args->iters; ifs_iters++)
+    {
+      int pt_i;
+      float probability_r = 1.0;
+      // randomly select index of transform to apply based on probabilities
+      for (pt_i = 0; pt_i < transforms.size() - 1; pt_i++){
+        std::bernoulli_distribution bd( probabilities[i] / probability_r );
+        if bd(args->mtrand.rand()) break;
+        probability_r -= probabilities[i];
+      }
+      // apply tranform to point
+      pt *= transforms[pt_i];
 
+    }
 
+    // store point
     points[i] = VertexPosColor(pt);
   }
 
