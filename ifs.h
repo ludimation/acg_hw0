@@ -16,6 +16,8 @@ class ArgParser;
 class IFS {
 
   // ASSIGNMENT: add whatever additional variables & functions you need
+  std::vector< float >                      probabilities;
+  std::vector< glm::mat4 >                  transforms;
 
 public:
 
