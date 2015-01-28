@@ -1,7 +1,7 @@
 HOMEWORK 0: TRANSFORMATIONS & OPENGL WARMUP
 
 
-NAME:  < insert name >
+NAME:  david allen
 
 
 TOTAL:  [ ?? / 5 ]
