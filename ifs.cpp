@@ -20,7 +20,12 @@ IFS::IFS(ArgParser *a) : args(a) {
   // read the number of transforms
   int num_transforms; 
   input >> num_transforms;
-    
+
+  // resize transforms and probabilities arrays based on num_transforms
+  // TODO: test
+  probabilities.resize(num_transforms);
+  transforms.resize(num_transforms);
+
   // read in the transforms
   for (int i = 0; i < num_transforms; i++) {
     float probability; 
@@ -35,9 +40,26 @@ IFS::IFS(ArgParser *a) : args(a) {
 
 
     // ASSIGNMENT: do something with each probability & matrix
-
-    
+    // TODO: test
+    transforms[i] = m;
+    probabilities[i] = probability;
   }  
+
+  // TODO: test
+  // sum probabilities
+  float probabilities_sum;
+  for (int i = 0; i < probabilities.size(); i++) {
+    probabilities_sum += probabilities[i];
+  }
+  if (probabilities_sum != 1.0) {
+    // scale probabilities to sum of 1.0 to avoid probability errors
+    // TODO: throw an error so data can be addressed?
+    probabilities_scale = 1.0/probabilities_sum;
+    for (int i = 0; i < probabilities.size(); i++) {
+      probabilities[i] *= probabilities_scale;
+    }
+  }  
+
 }
 
 // ====================================================================
