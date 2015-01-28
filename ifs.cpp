@@ -65,7 +65,9 @@ IFS::IFS(ArgParser *a) : args(a) {
 // ====================================================================
 // ====================================================================
 
-void IFS::setupVBOs() {
+
+// TODO: where is this called? doesn't seem to be called anywhere.
+void IFS::setupVBOs() { 
   HandleGLError("enter setupVBOs");
   if (args->cubes) {
     setupCube();
@@ -88,6 +90,7 @@ void IFS::drawVBOs(GLuint MatrixID,const glm::mat4 &m) {
 
 
     // ASSIGNMENT: don't just draw one cube...
+    // TODO: is there a way to draw one cube per point? Or should I create a vector of cube transforms? Also, is there a way to push / pop transforms?
     glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &m[0][0]);
     drawCube();
 
