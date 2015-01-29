@@ -20,13 +20,16 @@ public:
 
   // GL NAVIGATION
   virtual void glPlaceCamera() = 0;
-  void dollyCamera(double dist);
-  virtual void zoomCamera(double dist) = 0;
-  void truckCamera(double dx, double dy);
-  void rotateCamera(double rx, double ry);
+  void dollyCamera(float dist);
+  virtual void zoomCamera(float dist) = 0;
+  void truckCamera(float dx, float dy);
+  void rotateCamera(float rx, float ry);
 
   const glm::mat4& getViewMatrix() const { return ViewMatrix; }
   const glm::mat4& getProjectionMatrix() const { return ProjectionMatrix; }
+
+  friend std::ostream& operator<< (std::ostream& ostr, const Camera &c);
+  friend std::istream& operator>> (std::istream& istr, Camera &c);
 
 public:
   //protected:
@@ -58,17 +61,21 @@ public:
 class OrthographicCamera : public Camera {
 public:
   // CONSTRUCTOR & DESTRUCTOR
-  OrthographicCamera(
-         const glm::vec3 &c = glm::vec3(0,0,1), 
+  OrthographicCamera(const glm::vec3 &c = glm::vec3(0,0,1), 
 		     const glm::vec3 &poi = glm::vec3(0,0,0), 
 		     const glm::vec3 &u = glm::vec3(0,1,0),
-		     double s=100);  
+		     float s=100);  
+
   // GL NAVIGATION
   void glPlaceCamera();
-  void zoomCamera(double factor);
+  void zoomCamera(float factor);
+
+  friend std::ostream& operator<< (std::ostream& ostr, const OrthographicCamera &c);
+  friend std::istream& operator>> (std::istream& istr, OrthographicCamera &c);
+
 private:
   // REPRESENTATION
-  double size;
+  float size;
 };
 
 // ====================================================================
@@ -76,17 +83,21 @@ private:
 class PerspectiveCamera : public Camera {
 public:
   // CONSTRUCTOR & DESTRUCTOR
-  PerspectiveCamera(
-        const glm::vec3 &c = glm::vec3(0,0,1), 
+  PerspectiveCamera(const glm::vec3 &c = glm::vec3(0,0,1), 
 		    const glm::vec3 &poi = glm::vec3(0,0,0), 
 		    const glm::vec3 &u = glm::vec3(0,1,0),
-		    double a = 45);
+		    float a = 45);
+
   // GL NAVIGATION
   void glPlaceCamera();
-  void zoomCamera(double dist);
+  void zoomCamera(float dist);
+
+  friend std::ostream& operator<< (std::ostream& ostr, const PerspectiveCamera &c);
+  friend std::istream& operator>> (std::istream& istr, PerspectiveCamera &c);
+
 private:
   // REPRESENTATION
-  double angle;
+  float angle;
 };
 
 // ====================================================================

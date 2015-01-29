@@ -36,14 +36,15 @@ void GLCanvas::initialize(ArgParser *_args, IFS *_ifs) {
   ifs = _ifs;
 
   // initial placement of camera 
-  glm::vec3 camera_position = glm::vec3(0.5,0.5,5);
-  glm::vec3 point_of_interest = glm::vec3(0.5,0.5,0.5);
+  glm::vec3 camera_position   = glm::vec3( 0.5, 0.5, 3.0);
+  glm::vec3 point_of_interest = glm::vec3( 0.5, 0.5, 0.5);
   glm::vec3 up = glm::vec3(0,1,0);
+
 #if 1
   float size = 1.3; 
   camera = new OrthographicCamera(camera_position, point_of_interest, up, size);
 #else
-  float angle = 25.0;
+  float angle = 20.0;
   camera = new PerspectiveCamera(camera_position, point_of_interest, up, angle);
 #endif
   camera->glPlaceCamera(); 

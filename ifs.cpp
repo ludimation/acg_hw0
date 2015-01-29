@@ -15,8 +15,8 @@ IFS::IFS(ArgParser *a) : args(a) {
   // open the file
   std::ifstream input((args->path+"/"+args->input_file).c_str());
   if (!input.good()) {
-    std::cout << "ERROR: must specify valid input file" << args->path+"/"+args->input_file << std::endl;
-    exit(1);
+    std::cout << "ERROR: could not open input file" << args->path+"/"+args->input_file << std::endl;
+      exit(1);
   }
 
   // read the number of transforms
@@ -65,9 +65,7 @@ IFS::IFS(ArgParser *a) : args(a) {
 // ====================================================================
 // ====================================================================
 
-
-// TODO: where is this called? doesn't seem to be called anywhere.
-void IFS::setupVBOs() { 
+void IFS::setupVBOs() {
   HandleGLError("enter setupVBOs");
   if (args->cubes) {
     setupCube();
@@ -135,9 +133,9 @@ void IFS::setupPoints() {
 
   // generate a block of random data
   for (int i = 0; i < args->points; i++) {
-    double x = args->mtrand.rand();
-    double y = args->mtrand.rand();
-    double z = args->mtrand.rand();
+    double x = args->mtrand(); //.rand();
+    double y = args->mtrand(); //.rand();
+    double z = args->mtrand(); //.rand();
     glm::vec4 pt(x,y,z,1);
 
 
@@ -149,7 +147,7 @@ void IFS::setupPoints() {
       // randomly select index of transform to apply based on probabilities
       for (int j = 0; j < transforms.size(); j++){
         if (probability_r <= 0.0) break;
-        if (args->mtrand.rand() <= (probabilities[j] / probability_r) ) break;
+        if (args->mtrand() <= (probabilities[j] / probability_r) ) break;
         probability_i++;
         probability_r -= probabilities[j];
       }

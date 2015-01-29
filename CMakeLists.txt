@@ -7,6 +7,7 @@ add_executable(ifs
   glCanvas.cpp    
   camera.cpp  	       
   ifs.cpp
+  mtrand.cpp
 )
 
 # We've placed a few FindXXX.cmake files in the the source directory
