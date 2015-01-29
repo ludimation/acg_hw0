@@ -137,19 +137,19 @@ void IFS::setupPoints() {
     // TOD0: test
     for (int ifs_iters = 0; ifs_iters < args->iters; ifs_iters++)
     {
-      int pt_i;
+      int probability_i = 0;
       float probability_r = 1.0;
       // randomly select index of transform to apply based on probabilities
-      for (pt_i = 0; pt_i < transforms.size() - 1; pt_i++){
-        // std::bernoulli_distribution bd( probabilities[i] / probability_r );
-        // if (bd(args->mtrand.rand())) break;
-        if (args->mtrand.rand() <= (probabilities[i] / probability_r) ) break;
-        probability_r -= probabilities[i];
+      for (int j = 0; j < transforms.size(); j++){
+        if (probability_r <= 0.0) break;
+        if (args->mtrand.rand() <= (probabilities[j] / probability_r) ) break;
+        probability_i++;
+        probability_r -= probabilities[j];
       }
 
       // apply tranform to point
       // TODO: debug this. seems to not quite perform as expected.
-      pt = transforms[pt_i] * pt;
+      pt = transforms[probability_i] * pt;
 
     }
 
