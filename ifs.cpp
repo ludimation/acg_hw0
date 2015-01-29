@@ -1,6 +1,8 @@
 #include <cassert>
 #include <fstream>
 #include <glm/gtc/type_ptr.hpp>
+// #include <glm/glm.hpp>
+// #include <glm/gtc/matrix_transform.hpp>
 
 #include "ifs.h"
 #include "argparser.h"
@@ -47,7 +49,8 @@ IFS::IFS(ArgParser *a) : args(a) {
 
   // TODO: test
   // sum probabilities
-  float probabilities_sum;
+  float probabilities_sum = 0.0;
+  float probabilities_scale = 0.0;
   for (int i = 0; i < probabilities.size(); i++) {
     probabilities_sum += probabilities[i];
   }
@@ -132,18 +135,21 @@ void IFS::setupPoints() {
 
     // ASSIGNMENT: manipulate point
     // TOD0: test
-    for (ifs_iters = 0; ifs_iters < args->iters; ifs_iters++)
+    for (int ifs_iters = 0; ifs_iters < args->iters; ifs_iters++)
     {
       int pt_i;
       float probability_r = 1.0;
       // randomly select index of transform to apply based on probabilities
       for (pt_i = 0; pt_i < transforms.size() - 1; pt_i++){
-        std::bernoulli_distribution bd( probabilities[i] / probability_r );
-        if bd(args->mtrand.rand()) break;
+        // std::bernoulli_distribution bd( probabilities[i] / probability_r );
+        // if (bd(args->mtrand.rand())) break;
+        if (args->mtrand.rand() <= (probabilities[i] / probability_r) ) break;
         probability_r -= probabilities[i];
       }
+
       // apply tranform to point
-      pt *= transforms[pt_i];
+      // TODO: debug this. seems to not quite perform as expected.
+      pt = transforms[pt_i] * pt;
 
     }
 

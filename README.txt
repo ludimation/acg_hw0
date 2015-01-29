@@ -7,8 +7,10 @@ NAME:  david allen
 TOTAL TIME SPENT:  < insert time >
 Please estimate the number of hours you spent on this assignment.
 
-20150128 — 2pm–4pm — read all provided files, formatted some for legibility
-20150128 — 4pm–6pm — declared properties in "ifs.h", wrote intial code pass in "ifs.cpp"
+20150128 — 14:00–16:00 — read all provided files, formatted some for legibility
+20150128 — 16:00–18:00 — declared properties in "ifs.h", wrote intial code pass in "ifs.cpp"
+20150128 — 19:30–16:30 — tested initial code (compiles and rund, but iteration of transformations is still a bit off)
+
 
 
 
@@ -17,8 +19,8 @@ talked to about this assignment and all of the resources (books,
 online reference material, etc.) you consulted in completing this
 assignment.
 
+https://open.gl/transformations
 http://stackoverflow.com/questions/12885356/random-numbers-with-different-probabilities
-http://stackoverflow.com/questions/2717533/c-vector-of-vectors
 
 < insert collaborators / resources >
 
