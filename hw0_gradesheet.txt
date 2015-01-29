@@ -4,17 +4,17 @@ HOMEWORK 0: TRANSFORMATIONS & OPENGL WARMUP
 NAME:  david allen
 
 
-TOTAL:  [ ?? / 5 ]
+TOTAL:  [ 5.5 / 5 ]
 ** If code does not compile and run as submitted, total score
    multiplied by 0.5 **
 
 
-PROPER SUBMISSION FORMAT [ ?? / 1 ] 
+PROPER SUBMISSION FORMAT [ 1 / 1 ] 
 All files inside a "hw0" directory, code compiles, submission includes
 a README.txt file, submission includes a preliminary gradesheet.  
 
 
-IFS FOR POINTS  [ ?? / 2 ]
+IFS FOR POINTS  [ 2 / 2 ]
 basic implementation & efficiency discussion in README.txt
 ./ifs -input sierpinski_triangle.txt -points 10000 -iters 0 -size 200
 ./ifs -input sierpinski_triangle.txt -points 10000 -iters 1 -size 200
@@ -30,7 +30,7 @@ basic implementation & efficiency discussion in README.txt
 ./ifs -input giant_x.txt -points 10000 -size 400 -iters 4
 
 
-IFS, CUBE VISUALIZATION [ ?? / 1 ]
+IFS, CUBE VISUALIZATION [ 1 / 1 ]
 basic implementation & efficiency discussion in README.txt
 ./ifs -input giant_x.txt -size 400 -iters 0 -cubes
 ./ifs -input giant_x.txt -size 400 -iters 1 -cubes
@@ -39,14 +39,17 @@ basic implementation & efficiency discussion in README.txt
 ./ifs -input giant_x.txt -size 400 -iters 4 -cubes
 
 
-PARAMETERS [ ?? / 1 ]
+PARAMETERS [ 1 / 1 ]
 The other command line arguments do what they are supposed to.
 
 
-EXTRA CREDIT [ ?? ] (1-5 pts, depending on complexity)
+EXTRA CREDIT [ 0.5 ] (1-5 pts, depending on complexity)
 Possibilities include:
 * design a new IFS --- figure out the transformations and probabilities
 * implement a non-trivial color scheme
 * implement anti-aliasing
 * experiment with depth-first vs. breadth-first
+
+./ifs -input ../src/menger_cube.txt -points 100000 -iters 4 -size 1000 -cubes
+
 
