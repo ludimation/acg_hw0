@@ -4,14 +4,16 @@ HOMEWORK 0: TRANSFORMATIONS & OPENGL WARMUP
 NAME:  david allen
 
 
-TOTAL TIME SPENT:  < insert time >
+TOTAL TIME SPENT:  5.5 hours <TBU>
 Please estimate the number of hours you spent on this assignment.
 
 20150128 — 14:00–16:00 — read all provided files, formatted some for legibility
 20150128 — 16:00–18:00 — declared properties in "ifs.h", wrote intial code pass in "ifs.cpp"
-20150128 — 19:30–16:30 — tested initial code (compiles and rund, but iteration of transformations is still a bit off)
-
-
+20150128 — 19:30–20:30 — tested initial code (compiled and ran, but iteration of transformations was still a bit off)
+20150128 - 23:15–23:40 — made it work with points (still need to figure out cubes)
+----
+5.5 hours so far
+----
 
 
 COLLABORATORS AND OTHER RESOURCES: List the names of everyone you
