@@ -84,17 +84,28 @@ void IFS::setupVBOs() {
 // own matrices with this matrix before calling draw.
 
 void IFS::drawVBOs(GLuint MatrixID,const glm::mat4 &m) {
+  drawVBOs(MatrixID,m,0);
+}
+
+void IFS::drawVBOs(GLuint MatrixID,const glm::mat4 &m, int ifs_iteration) {
   HandleGLError("enter drawVBOs");
   if (args->cubes) {
 
-
-
     // ASSIGNMENT: don't just draw one cube...
-    // TODO: is there a way to draw one cube per point? Or should I create a vector of cube transforms? Also, is there a way to push / pop transforms?
-    glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &m[0][0]);
-    drawCube();
 
-
+    if (ifs_iteration < args->iters) {
+      // create one cube for each transform
+      for (int j = 0; j < transforms.size(); j++){
+        // create a temporary transformation matrix
+        glm::mat4 transform = m * transforms[j];
+        // step into next recursion
+        drawVBOs(MatrixID, transform, ifs_iteration + 1);
+      }
+    } else {
+      // apply the local transform matrix & draw the cube
+      glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &m[0][0]);
+      drawCube();
+    }
 
   } else {
     glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &m[0][0]);

@@ -19,6 +19,8 @@ class IFS {
   std::vector< float >                      probabilities;
   std::vector< glm::mat4 >                  transforms;
 
+  void drawVBOs(GLuint MatrixID,const glm::mat4 &MVP, int ifs_iteration);
+
 public:
 
   // CONSTRUCTOR

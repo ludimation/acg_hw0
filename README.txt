@@ -4,16 +4,18 @@ HOMEWORK 0: TRANSFORMATIONS & OPENGL WARMUP
 NAME:  david allen
 
 
-TOTAL TIME SPENT:  5.5 hours <TBU>
+TOTAL TIME SPENT:  6.5 hours <TBU>
 Please estimate the number of hours you spent on this assignment.
 
 20150128 — 14:00–16:00 — read all provided files, formatted some for legibility
 20150128 — 16:00–18:00 — declared properties in "ifs.h", wrote intial code pass in "ifs.cpp"
 20150128 — 19:30–20:30 — tested initial code (compiled and ran, but iteration of transformations was still a bit off)
 20150128 - 23:15–23:40 — made it work with points (still need to figure out cubes)
+20150128 - 23:40–00:40 — wrote recursive cube function
 ----
-5.5 hours so far
+6.5 hours so far
 ----
+TODO: finish gradesheet? (See Barb or TA for assistance)
 
 
 COLLABORATORS AND OTHER RESOURCES: List the names of everyone you
