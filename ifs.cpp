@@ -24,7 +24,6 @@ IFS::IFS(ArgParser *a) : args(a) {
   input >> num_transforms;
 
   // resize transforms and probabilities arrays based on num_transforms
-  // TODO: test
   probabilities.resize(num_transforms);
   transforms.resize(num_transforms);
 
@@ -42,12 +41,10 @@ IFS::IFS(ArgParser *a) : args(a) {
 
 
     // ASSIGNMENT: do something with each probability & matrix
-    // TODO: test
     transforms[i] = m;
     probabilities[i] = probability;
   }  
 
-  // TODO: test
   // sum probabilities
   float probabilities_sum = 0.0;
   float probabilities_scale = 0.0;
@@ -134,7 +131,6 @@ void IFS::setupPoints() {
 
 
     // ASSIGNMENT: manipulate point
-    // TOD0: test
     for (int ifs_iters = 0; ifs_iters < args->iters; ifs_iters++)
     {
       int probability_i = 0;
@@ -148,7 +144,6 @@ void IFS::setupPoints() {
       }
 
       // apply tranform to point
-      // TODO: debug this. seems to not quite perform as expected.
       pt = transforms[probability_i] * pt;
 
     }
